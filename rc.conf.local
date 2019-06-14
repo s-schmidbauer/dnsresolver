@@ -1,0 +1,3 @@
+dnscrypt_proxy_flags=" -config /etc/dnscrypt-proxy.toml"
+pkg_scripts=dnscrypt_proxy tor
+unbound_flags=

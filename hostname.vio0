@@ -1,0 +1,3 @@
+dhcp
+inet6 autoconf -autoconfprivacy -soii
+inet alias 78.141.222.114 255.255.255.255
