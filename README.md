@@ -15,7 +15,7 @@
 ### configure cron
 see https://github.com/s-schmidbauer/wurstbot-dns/blob/master/crontab
 
-# pf config
+## pf config
 using existing IP blocklists collected by jupiter
 * doas ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/pf.conf -o /etc/pf.conf
 * doas ftp https://github.com/s-schmidbauer/jupiter/blob/master/pf.mofos -o /etc/pf.mofos
