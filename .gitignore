@@ -1,0 +1,13 @@
+*
+!.gitignore
+!dnscrypt-proxy.toml
+!hostname.*
+!sshd_config
+!pf.conf
+!rc.conf.local
+!adblocks.conf
+!unbound.conf
+!torrc
+!adblocks.sh
+!crontab
+!README.md
