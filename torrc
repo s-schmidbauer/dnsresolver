@@ -1,1 +1,10 @@
-tor/torrc
+Log notice syslog
+RunAsDaemon 1
+DataDirectory /var/tor
+ORPort 9001
+Address 78.141.222.114
+Nickname wurstbot 
+ContactInfo 0xFFFFFFFF Operator <root@wurstbot.com>
+ExitRelay 0
+User _tor
+MaxMemInQueues 1024 Mb
