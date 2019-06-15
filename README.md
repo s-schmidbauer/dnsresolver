@@ -28,7 +28,7 @@ using existing IP blocklists collected by jupiter
 
 ## prepare ad block lists
 * doas pkg_add curl
-* doas ftp https://github.com/s-schmidbauer/jupiter/blob/master/adblocks.sh -o /usr/local/bin/adblocks.sh
+* doas ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/adblocks.sh -o /usr/local/bin/adblocks.sh
 * doas chmod +x /usr/local/bin/adblocks.sh
 * cd /tmp; adblocks.sh > adblocks.conf
 * doas cp adblocks.conf /var/unbound/etc/adblocks.conf
