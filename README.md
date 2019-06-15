@@ -8,8 +8,7 @@
 * doas pkg_add -u
 
 ### setup a user
-* adduser stefans
-* passwd stefans
+* adduser -batch stefans wheel 'stefans' '$2b$08$wPQe2jmI3M4Rw1UpnRz8GOeNpW.LJLl5KcdQdZPXwNA94fBPBBwOq'
 * echo "ecdsa-sha2-nistp521 AAAA.... " >> /home/stefans/.ssh/authorized_keys
 
 ### configure cron
