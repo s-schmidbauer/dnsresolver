@@ -48,7 +48,7 @@ using existing IP blocklists collected by jupiter
 
 ## unbound 
 * ftp https://www.internic.net/domain/named.root -O /var/unbound/etc/root.hints
-* ftp https://github.com/s-schmidbauer/jupiter/blob/master/unbound.conf -o /var/unbound/etc/unbound.conf
+* ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/unbound.conf -o /var/unbound/etc/unbound.conf
 * doas chown _unbound: /var/unbound/etc/root.hints
 * doas unbound-anchor
 * doas rcctl start unbound
