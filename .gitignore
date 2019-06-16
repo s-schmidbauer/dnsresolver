@@ -10,4 +10,5 @@
 !torrc
 !adblocks.sh
 !crontab
+!sysctl.conf
 !README.md
