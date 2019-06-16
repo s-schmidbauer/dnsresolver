@@ -6,6 +6,8 @@
 * doas fw_update
 * doas syspatch
 * doas pkg_add -u
+* doas pkg_add git wget
+* doas wget https://github.com/s-schmidbauer/wurstbot-dns/blob/master/sysctl.conf -O /etc/sysctl.conf
 
 ### setup a user
 * adduser -batch stefans wheel 'stefans' '$2b$08$wPQe2jmI3M4Rw1UpnRz8GOeNpW.LJLl5KcdQdZPXwNA94fBPBBwOq'
@@ -16,38 +18,38 @@ see https://github.com/s-schmidbauer/wurstbot-dns/blob/master/crontab
 
 ## pf config
 using existing IP blocklists collected by jupiter
-* doas ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/pf.conf -o /etc/pf.conf
-* doas ftp https://github.com/s-schmidbauer/jupiter/blob/master/pf.mofos -o /etc/pf.mofos
-* doas ftp https://github.com/s-schmidbauer/jupiter/blob/master/pf.webmofos -o /etc/pf.webmofos
+* doas wget https://github.com/s-schmidbauer/wurstbot-dns/blob/master/pf.conf -O /etc/pf.conf
+* doas wget https://github.com/s-schmidbauer/jupiter/blob/master/pf.mofos -O /etc/pf.mofos
+* doas wget https://github.com/s-schmidbauer/jupiter/blob/master/pf.webmofos -O /etc/pf.webmofos
 * doas pfctl -nf /etc/pf.conf && doas pfctl -f /etc/pf.conf
 
 ## sshd config
-* doas ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/sshd_config -o /etc/ssh/sshd_config
+* doas wget https://github.com/s-schmidbauer/wurstbot-dns/blob/master/sshd_config -O /etc/ssh/sshd_config
 * doas rcctl reload sshd
 
 ## prepare ad block lists
 * doas pkg_add curl
-* doas ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/adblocks.sh -o /usr/local/bin/adblocks.sh
+* doas wget https://github.com/s-schmidbauer/wurstbot-dns/blob/master/adblocks.sh -O /usr/local/bin/adblocks.sh
 * doas chmod +x /usr/local/bin/adblocks.sh
 * cd /tmp; adblocks.sh > adblocks.conf
 * doas cp adblocks.conf /var/unbound/etc/adblocks.conf
 
 ## tor
 * doas pkg_add tor
-* doas ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/torrc -o /etc/tor/torrc
+* doas wget https://github.com/s-schmidbauer/wurstbot-dns/blob/master/torrc -O /etc/tor/torrc
 * doas rcctl start tor
 * doas rcctl enable tor
 
 ## dnscrypt-proxy 
 * doas pkg_add dnscrypt-proxy
-* ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/dnscrypt-proxy.toml -o /etc/dnscrypt-proxy.toml
+* wget https://github.com/s-schmidbauer/wurstbot-dns/blob/master/dnscrypt-proxy.toml -O /etc/dnscrypt-proxy.toml
 * doas rcctl set dnscrypt_proxy flags " -config /etc/dnscrypt-proxy.toml"
 * doas rcctl start dnscrypt_proxy
 * doas rcctl enable dnscrypt_proxy
 
 ## unbound 
-* ftp https://www.internic.net/domain/named.root -O /var/unbound/etc/root.hints
-* ftp https://github.com/s-schmidbauer/wurstbot-dns/blob/master/unbound.conf -o /var/unbound/etc/unbound.conf
+* wget https://www.internic.net/domain/named.root -O /var/unbound/etc/root.hints
+* wget https://github.com/s-schmidbauer/wurstbot-dns/blob/master/unbound.conf -O /var/unbound/etc/unbound.conf
 * doas chown _unbound: /var/unbound/etc/root.hints
 * doas unbound-anchor
 * doas rcctl start unbound
