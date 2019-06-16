@@ -1,7 +1,7 @@
 ## basic system setup
 * echo "https://cdn.openbsd.org/pub/OpenBSD" > /etc/installurl
 * echo "permit keepenv nopass :wheel" > /etc/doas.conf
-* echo "inet alias 78.141.222.114 255.255.255.255" >> /etc/hostname.vio0
+* echo "inet alias 45.76.82.32 255.255.255.255" >> /etc/hostname.vio0
 * doas sh /etc/netstart vio0
 * doas fw_update
 * doas syspatch
