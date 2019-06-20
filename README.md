@@ -43,17 +43,17 @@ using existing IP blocklists collected by jupiter
 ## dnscrypt-proxy 
 * doas pkg_add dnscrypt-proxy
 * wget https://raw.githubusercontent.com/s-schmidbauer/wurstbot-dns/master/dnscrypt-proxy.toml -O /etc/dnscrypt-proxy.toml
+* doas rcctl enable dnscrypt_proxy
 * doas rcctl set dnscrypt_proxy flags " -config /etc/dnscrypt-proxy.toml"
 * doas rcctl start dnscrypt_proxy
-* doas rcctl enable dnscrypt_proxy
 
 ## unbound 
 * wget https://www.internic.net/domain/named.root -O /var/unbound/etc/root.hints
 * wget https://raw.githubusercontent.com/s-schmidbauer/wurstbot-dns/master/unbound.conf -O /var/unbound/etc/unbound.conf
 * doas chown _unbound: /var/unbound/etc/root.hints
 * doas unbound-anchor
-* doas rcctl start unbound
 * doas rcctl enable unbound
+* doas rcctl start unbound
 
 > warning! the config check fails with an out of memory error!
 > the limits defined in /etc/login.conf only apply to processes started with rc.d
