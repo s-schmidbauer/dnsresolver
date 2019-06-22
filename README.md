@@ -57,3 +57,9 @@ using existing IP blocklists collected by jupiter
 
 > warning! the config check fails with an out of memory error!
 > the limits defined in /etc/login.conf only apply to processes started with rc.d
+
+# tipps
+when restarting unbound, dump the cache first and load it back in after the restart. Also useful for backup purposes
+doas unbound-control dump_cache > unbound.dump
+doas rcctl restart unbound ; cat unbound.dump | doas unbound-control load_cache
+rm unbound.dump
