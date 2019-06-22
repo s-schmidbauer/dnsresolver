@@ -60,6 +60,6 @@ using existing IP blocklists collected by jupiter
 
 # tipps
 when restarting unbound, dump the cache first and load it back in after the restart. Also useful for backup purposes
-doas unbound-control dump_cache > unbound.dump
-doas rcctl restart unbound ; cat unbound.dump | doas unbound-control load_cache
-rm unbound.dump
+* doas unbound-control dump_cache > unbound.dump
+* doas rcctl restart unbound ; cat unbound.dump | doas unbound-control load_cache
+* rm unbound.dump
