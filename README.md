@@ -70,3 +70,7 @@ using existing IP blocklists collected by jupiter
         :openfiles=4500:\
 * doas cap_mkdb /etc/login.conf
 * doas rcctl restart unbound
+
+> Raise the log file sizes 10x line count, 30 versions kept
+* doas vi /etc/newsyslog
+* /var/log/daemon                         640  30    3000 *     Z
