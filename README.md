@@ -59,7 +59,14 @@ using existing IP blocklists collected by jupiter
 > the limits defined in /etc/login.conf only apply to processes started with rc.d
 
 ## tipps
-> when restarting unbound, dump the cache first and load it back in after the restart. Also useful for backup purposes
+> When restarting unbound, dump the cache first and load it back in after the restart. Also useful for backup purposes
 * doas unbound-control dump_cache > unbound.dump
 * doas rcctl restart unbound ; cat unbound.dump | doas unbound-control load_cache
 * rm unbound.dump
+
+> Raise file limits to support more open ports. Then, activate the changes and restart unbound
+* vi /etc/login.conf
+* unbound:\
+        :openfiles=4500:\
+* doas cap_mkdb /etc/login.conf
+* doas rcctl restart unbound
