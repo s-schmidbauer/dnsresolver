@@ -64,11 +64,17 @@ using existing IP blocklists collected by jupiter
 * doas rcctl restart unbound ; cat unbound.dump | doas unbound-control load_cache
 * rm unbound.dump
 
-> Raise file limits to support more open ports. Then, activate the changes and restart unbound
+> Raise file limits to support more open ports. Then, activate the changes and restart unbound and tor
 * vi /etc/login.conf
 * unbound:\
         :openfiles=4500:\
+        :tc=daemon:
+* tor:\
+        :openfiles-max=13500:\
+        :tc=daemon:       
+        
 * doas cap_mkdb /etc/login.conf
+
 * doas rcctl restart unbound
 
 > Raise the log file sizes 10x line count, 30 versions kept
